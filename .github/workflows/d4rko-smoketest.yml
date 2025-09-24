@@ -11,7 +11,7 @@ jobs:
     uses: 0GMou/D4RKO-factory/.github/workflows/d4rko-build-reusable.yml@main
     with:
       container_image: ghcr.io/0gmou/d4rko-win64:stable
-      build_action: 0GMou/D4RKO-factory/actions/d4rko-hello-mingw@main
+      build_script: scripts/d4rko-hello-mingw.sh
       artifact_glob: out/**/*.7z
       release_tag: ${{ inputs.release_tag }}
     secrets:
