@@ -1,0 +1,18 @@
+name: D4RKO smoke test
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag
+        required: false
+        default: ""
+jobs:
+  call-factory:
+    uses: 0GMou/D4RKO-factory/.github/workflows/d4rko-build-reusable.yml@main
+    with:
+      container_image: ghcr.io/0gmou/d4rko-win64:stable
+      build_action: 0GMou/D4RKO-factory/actions/d4rko-hello-mingw@main
+      artifact_glob: out/**/*.7z
+      release_tag: ${{ inputs.release_tag }}
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
